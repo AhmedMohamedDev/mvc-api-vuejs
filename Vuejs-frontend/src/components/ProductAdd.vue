@@ -60,7 +60,7 @@
       <h4 v-if="product.productType === 'furniture'">Please, provide dimensions</h4>
       <div>
         <button @click.prevent="saveForm('product_form')">Save</button>
-        <router-link :to="{ path: '/product/list' }">
+        <router-link :to="{ path: '/' }">
           <button>Cancel</button>
         </router-link>
 
@@ -105,7 +105,7 @@ export default {
         await this.$store.dispatch("submitProductData", this.product);
         this.errors = {};
         this.product = {};
-        this.$router.push('/product/list');
+        this.$router.push('/');
       } catch (error) {
         this.errors = error.response.data.errors;
         console.log(this.errors);
